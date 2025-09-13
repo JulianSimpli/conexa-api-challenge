@@ -6,7 +6,7 @@ import { IPaginatedResponse } from '../../common/interfaces/paginated-response.i
 
 @Injectable()
 export class MovieRepository implements IMovieRepository {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(private readonly databaseService: DatabaseService) { }
 
   async create(data: Partial<Movie>): Promise<Movie> {
     return this.databaseService.movie.create({
@@ -14,6 +14,7 @@ export class MovieRepository implements IMovieRepository {
         title: data.title!,
         episodeId: data.episodeId!,
         releaseDate: data.releaseDate!,
+        swapi: data.swapi ?? false,
       },
     });
   }
