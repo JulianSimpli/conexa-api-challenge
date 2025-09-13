@@ -62,7 +62,12 @@ describe('MovieRepository', () => {
       const result = await repository.create(createMovieDto);
 
       expect(mockDatabaseService.movie.create).toHaveBeenCalledWith({
-        data: createMovieDto,
+        data: {
+          title: 'A New Hope',
+          episodeId: 4,
+          releaseDate: '1977-05-25',
+          swapi: false,
+        },
       });
       expect(result).toEqual(mockMovie);
     });
