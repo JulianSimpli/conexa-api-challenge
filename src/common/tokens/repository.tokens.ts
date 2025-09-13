@@ -1,0 +1,2 @@
+export const USER_REPOSITORY_TOKEN = Symbol('USER_REPOSITORY');
+export const MOVIE_REPOSITORY_TOKEN = Symbol('MOVIE_REPOSITORY');
