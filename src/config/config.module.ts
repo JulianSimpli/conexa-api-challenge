@@ -1,5 +1,14 @@
 import { Global, Module } from '@nestjs/common';
+import { config } from './config';
 
 @Global()
-@Module({})
-export class ConfigModule {}
+@Module({
+  providers: [
+    {
+      provide: 'CONFIG',
+      useValue: config,
+    },
+  ],
+  exports: ['CONFIG'],
+})
+export class ConfigModule { }

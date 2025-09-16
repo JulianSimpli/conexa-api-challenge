@@ -4,6 +4,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from './config/config.module';
 import { DatabaseModule } from './database/database.module';
+import { CommonModule } from './common/common.module';
 import { UsersModule } from './users/users.module';
 import { MoviesModule } from './movies/movies.module';
 
@@ -11,6 +12,7 @@ import { MoviesModule } from './movies/movies.module';
   imports: [
     ConfigModule,
     DatabaseModule,
+    CommonModule,
     UsersModule,
     AuthModule,
     MoviesModule,
@@ -19,4 +21,4 @@ import { MoviesModule } from './movies/movies.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }

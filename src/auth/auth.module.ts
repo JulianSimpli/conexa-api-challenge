@@ -7,14 +7,16 @@ import { JwtService } from './services/jwt/jwt.service';
 import { AuthController } from './controllers/auth.controller';
 import { UsersModule } from '../users/users.module';
 import { JwtAuthGuard } from './guards';
-import { config } from '../config/config';
 
 @Module({
   imports: [
     UsersModule,
-    JwtModule.register({
-      secret: config.jwt.secret,
-      signOptions: { expiresIn: config.jwt.expiresIn },
+    JwtModule.registerAsync({
+      inject: ['CONFIG'],
+      useFactory: (config: any) => ({
+        secret: config.jwt.secret,
+        signOptions: { expiresIn: config.jwt.expiresIn },
+      }),
     }),
   ],
   providers: [HashService, JwtService, JwtAuthGuard, AuthService],
